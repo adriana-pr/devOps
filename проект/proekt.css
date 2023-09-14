@@ -1,0 +1,265 @@
+.wrap{
+     min-height: 400px;
+     width: 1150px;
+     margin: 0 auto;
+     border: 1px solid #C4C4C4;
+     box-sizing: border-box;
+}
+.menu{
+    height:66px ;
+    display: flex;
+    border-bottom: 2px solid #C4C4C4;
+    box-sizing: border-box;
+   
+}
+.left,.right {
+    height:66px ;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+}
+
+.left a {
+    margin-left: 15px;
+    font-size: 20px;
+    color: black;
+   text-decoration: none;
+   font-weight: 600;
+}
+.left a+a {
+font-weight: normal;
+}
+
+.right a{
+  color: #C4C4C4;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; 
+  margin-left: 10px;
+}
+.left a:hover{
+    color:#a4a4a4 ; 
+}
+.right a:hover{
+    color: #ED8651; 
+}
+/* .arrow a{
+    font-size: 50px; 
+    position: absolute;
+    right: 0;
+    top:-5px;
+    right: 50px;
+
+} */
+.carousel-caption h5{
+    font-family: Playfair Display;
+    color: black;
+    font-size: 72px;
+}
+.carousel-item img{
+height: 650px;
+}
+.places-box{
+    margin-top: 90px;
+}
+.places-box h2{
+    height: 50px;
+    text-align: center;
+}
+.places{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+.place{
+   width:342px;
+}
+.place p{
+    box-sizing: border-box;
+    border-left: 1px solid #ED8651;
+    padding-left: 25px;
+    text-align: justify;  
+}
+.place h3{
+    margin: 16px 0 26px 0;
+    text-align: center;
+}
+.footer{
+    height: 90px;
+    background: #bd9456;
+}
+.blog{
+    display: flex;
+    margin-top: 115px;
+}
+.blog-name{
+    width: 600px;
+   height: 650px;
+   background: #F2F5F1;
+}
+
+.places1{
+    margin-top: 40px;
+    display: flex;
+    position: absolute;
+    left: 450px;
+    top: 300px;
+   
+}
+.places1 img{
+    width: 275px;
+  
+}
+.place1,.place2{
+   width:342px;
+   text-align: center;
+}
+.place1 p, .place2 p{
+    box-sizing: border-box;
+    border-top: 1px solid #ED8651;
+    padding-left: 25px;
+    text-align: justify;
+    font-size: 14px;  
+}
+.place1 h3,.place2 h3{
+    margin: 16px 0 26px 0;
+    text-align: center;
+    font-size: 21px;
+  
+}
+.place1{
+    margin-right: 30px;
+}
+.blog-name h2 {
+    font-size: 72px;
+    font-family: Playfair Display;
+    margin: -40px 0 0 207px;
+}
+
+.blog-name h4{
+    font-family: Playfair Display;
+    margin: 50px 0 20px 100px;
+
+}
+
+.blog-name li{
+    list-style-type: none;
+    border: 1px solid#E4E4E4;
+    border-radius: 50px;
+    width: 210px;
+    height: 25px;
+    margin: 10px 0 0 40px;
+    font-family: Open Sans;
+    line-height: 19px;
+    font-size: 16px;
+    padding:2px 0 0 20px  ;
+}
+.blog-name li:hover{
+    background: #E4E4E4;
+}
+.blog-name h5{
+    color: #30ABAE;
+    font-family: Open Sans;
+   font-size: 16px;
+   line-height: 24px;  
+   margin: 10px 0 0 40px;
+}
+
+.article{
+display: flex;
+justify-content: space-around;
+margin-top: 95px;
+}
+.article p{
+    padding:0 10px;
+}
+.footer1{
+    margin-top: 58px;
+    height: 115px;
+    background: #F2F5F1;
+}
+.footer2{
+    margin-top: 7px;
+    height: 90px;
+    background: #16595A;
+}
+.filling1{
+    display: flex;
+    margin-top: 90px;
+}
+.filling{
+ width: 750px;
+ height: 650px;
+ background: #F2F5F1;
+}
+.title{
+    position: absolute;
+}
+.title h1{
+
+    font-family: Playfair Display;
+    font-size: 72px;
+    margin: -45px 0 60px 200px;
+    
+}
+
+.form{
+    text-align: center;
+   margin-left: 300px; 
+}
+
+
+input[type="login"],input[type="email"]{
+    margin-bottom: 10px;
+    width: 505px;
+    height: 54px;
+    background: transparent;
+    border: 1px solid #C4C4C4;
+}
+input[type="submit"]{
+    margin-bottom: 10px;
+    width: 295px;
+    height: 55px;
+    background: #30ABAE;
+    border-radius: 3px ;
+    border: #30ABAE;
+    color: white;
+    font-family: Open Sans;
+    font-size: 18px;
+}
+textarea{
+    background: transparent;
+    border: 1px solid #C4C4C4;
+    width: 505px;
+height: 186px;
+}
+input[type="login"]:hover,input[type="email"]:hover{
+    border: 1px solid #30ABAE;
+}
+textarea:hover{
+    border: 1px solid #30ABAE;
+
+}
+input[type="login"]::placeholder{
+    color: #000000;
+    font-family: Playfair Display;
+    font-size: 18px;
+    padding: 15px;
+    font-weight: bold;
+
+}
+input[type="email"]::placeholder,textarea::placeholder{
+   color: #C4C4C4;
+    font-family: Playfair Display;
+    font-size: 18px;
+    padding: 15px;
+    font-weight: bold;
+
+}
+.footer3{
+    height: 90px;
+    background: #16595A;
+}
+
