@@ -6,7 +6,9 @@
      box-sizing: border-box;
 }
 .menu{
-    height:64px ;
+
+    height:66px ;
+
     display: flex;
     border-bottom: 2px solid #C4C4C4;
     box-sizing: border-box;
