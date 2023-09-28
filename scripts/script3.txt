@@ -1,0 +1,21 @@
+#!/bin/bash
+if [ $# -ne 2 ]; then
+  echo "Використання: $0 <шлях до директорії> <текст>"
+  exit 1
+fi
+
+directory="$1"
+search_text="$2"
+
+if [ ! -d "$directory" ]; then
+  echo "Директорія '$directory' не існує."
+  exit 1
+fi
+
+result=$(grep -rl "$search_text" "$directory")
+
+if [ -z "$result" ]; then
+  echo "Файлів з текстом '$search_text' не знайдено в директорії '$directory'."
+else
+  echo "$result"
+fi
