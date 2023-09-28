@@ -1,11 +1,32 @@
 #!/bin/bash
-if [ $# -ne 2 ]; then
-  echo "Використання: $0 <шлях до директорії> <текст>"
+
+# Ініціалізація змінних
+directory=""
+search_text=""
+
+while getopts ":p:s:" opt; do
+  case "$opt" in
+    p)
+      directory="$OPTARG"
+      ;;
+    s)
+      search_text="$OPTARG"
+      ;;
+    \?)
+      echo "Невідомий параметр: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Параметр -$OPTARG вимагає аргументу." >&2
+      exit 1
+      ;;
+  esac
+done
+
+if [ -z "$directory" ] || [ -z "$search_text" ]; then
+  echo "Використання: $0 -p <шлях до директорії> -s <текст>"
   exit 1
 fi
-
-directory="$1"
-search_text="$2"
 
 if [ ! -d "$directory" ]; then
   echo "Директорія '$directory' не існує."
