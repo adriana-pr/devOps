@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Ініціалізація змінних
 directory=""
 search_text=""
 
