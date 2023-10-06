@@ -1,0 +1,38 @@
+# Написати cron job, яка полягає в тому, що перевіряється, чи змінився файл /var/log/my-app.log. 
+# У випадку, якщо він змінився, то записати в БД redis інформацію про розмір та дату зміни цього файлу.
+
+## update_redis.sh
+
+#!/bin/bash
+
+log_file_path="/Users/mac/devOps/var/log/my-app.log"
+
+redis_host="localhost"
+redis_port="6379"
+
+size_key="my-app-log-size"
+date_key="my-app-log-date"
+
+current_size=$(wc -c < "$log_file_path")
+
+current_date=$(date -r "$log_file_path" '+%Y-%m-%d %H:%M:%S')
+
+previous_size=$(/usr/local/bin/redis-cli -h $redis_host -p $redis_port GET $size_key)
+previous_date=$(/usr/local/bin/redis-cli -h $redis_host -p $redis_port GET $date_key)
+
+
+if [ "$previous_size" != "$current_size" ] || [ "$previous_date" != "$current_date" ]; then
+  
+    /usr/local/bin/redis-cli -h $redis_host -p $redis_port SET $size_key $current_size
+    /usr/local/bin/redis-cli -p $redis_port SET $date_key "$current_date"
+    echo "Інформація в Redis оновлена"
+fi
+
+## cron job
+11 9 * * * /Users/mac/devOps/var/update_redis.sh
+
+## Redis
+127.0.0.1:6379> get my-app-log-size
+"47"
+127.0.0.1:6379> get my-app-log-date
+"2023-10-06 09:09:39"
