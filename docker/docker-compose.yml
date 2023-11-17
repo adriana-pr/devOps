@@ -1,0 +1,50 @@
+version: "3"
+services:
+  server:
+    container_name: server
+    image: adriana275/phpangular:1.0.0
+    ports:
+      - '8080:80'
+    restart: unless-stopped
+    links:
+      - "db"
+    volumes:
+      - ./AngularPHP:/var/www/html/
+  db:
+    container_name: db
+    image: mysql:8.0.27
+    ports:
+      - '5506:3306'
+    restart: unless-stopped
+    environment:
+      MYSQL_USER:  adriana
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+      #MYSQL_DATABASE: game_database 
+    volumes:
+      - ./AngularPHP:/var/lib/mysql
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin:5.1.1
+    restart: 'always'
+    ports:
+      - '8087:80'
+    environment:
+      - PMA_HOST=db
+      - PMA_PASSWORD:root
+    depends_on:
+      - db
+    links:
+      - db
+  frontend:
+      image: adriana275/angularphp:1.0.0
+      container_name: angular_node
+      ports:
+          - 8100:4200
+      volumes:
+      
+          - "/Users/mac/Documents/devOps/Docker/project/node_modules"
+          - "./project:/app"
+      #tty: true
+volumes:
+  dump:
